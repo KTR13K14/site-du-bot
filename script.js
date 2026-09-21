@@ -1,20 +1,15 @@
 // ==========================================
-// KTR/IA — CONFIGURATION DU SITE
+// KTR/IA — SITE
 // ==========================================
 
-// ID de l'application Discord KTR/IA
 const BOT_CLIENT_ID = "1551628175421870091";
-
-// ==========================================
-// LIEN D'AJOUT DU BOT
-// ==========================================
 
 const INVITE_URL =
     `https://discord.com/oauth2/authorize?client_id=${BOT_CLIENT_ID}&permissions=8&integration_type=0&scope=bot%20applications.commands`;
 
 
 // ==========================================
-// BOUTONS "AJOUTER À DISCORD"
+// BOUTONS DISCORD
 // ==========================================
 
 document.querySelectorAll("[data-invite]").forEach((link) => {
@@ -22,19 +17,7 @@ document.querySelectorAll("[data-invite]").forEach((link) => {
     link.href = INVITE_URL;
 
     link.addEventListener("click", (event) => {
-
-        if (!BOT_CLIENT_ID || BOT_CLIENT_ID === "REMPLACE_PAR_TON_CLIENT_ID") {
-            event.preventDefault();
-
-            alert(
-                "❌ L'ID de KTR/IA n'est pas configuré."
-            );
-
-            return;
-        }
-
-        // Ouvre le lien Discord
-        // dans le même onglet
+        event.preventDefault();
         window.location.href = INVITE_URL;
     });
 
@@ -45,9 +28,7 @@ document.querySelectorAll("[data-invite]").forEach((link) => {
 // ANIMATION DES CARTES
 // ==========================================
 
-const cards = document.querySelectorAll(".card");
-
-cards.forEach((card) => {
+document.querySelectorAll(".card").forEach((card) => {
 
     card.addEventListener("mouseenter", () => {
         card.style.transform = "translateY(-6px)";
@@ -61,7 +42,7 @@ cards.forEach((card) => {
 
 
 // ==========================================
-// APPARITION DES ÉLÉMENTS AU SCROLL
+// APPARITION AU SCROLL
 // ==========================================
 
 const observer = new IntersectionObserver(
@@ -70,9 +51,7 @@ const observer = new IntersectionObserver(
         entries.forEach((entry) => {
 
             if (entry.isIntersecting) {
-
                 entry.target.classList.add("visible");
-
             }
 
         });
@@ -83,8 +62,6 @@ const observer = new IntersectionObserver(
     }
 );
 
-
-// Éléments à observer
 document
     .querySelectorAll(
         ".section, .card, .terminal, .command-list, .cta"
@@ -108,10 +85,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
         const targetId = link.getAttribute("href");
 
-        if (
-            !targetId ||
-            targetId === "#"
-        ) {
+        if (!targetId || targetId === "#") {
             return;
         }
 
@@ -134,7 +108,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
 
 // ==========================================
-// EFFET TERMINAL
+// CURSEUR TERMINAL
 // ==========================================
 
 const cursor = document.querySelector(".cursor");
@@ -154,7 +128,7 @@ if (cursor) {
 
 
 // ==========================================
-// ANNÉE AUTOMATIQUE DANS LE FOOTER
+// ANNÉE AUTOMATIQUE
 // ==========================================
 
 const yearElement =
@@ -183,6 +157,6 @@ console.log(
 );
 
 console.log(
-    "🚀 Installation :",
+    "🚀 Lien d'installation :",
     INVITE_URL
 );
